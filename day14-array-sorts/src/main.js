@@ -19,7 +19,6 @@ console.log(fruitObjectArray);
 console.log([1, 5, 8, 9, 0, 12, 6].sort());
 
 console.log(["1", "5", "55", "10", "0"].sort());
-//"0" "1" "10" "5" "55"
 
 const months1 = ["Jan", "Feb", "Mar", "Apr"];
 const sorted1 = months1.toSorted();
