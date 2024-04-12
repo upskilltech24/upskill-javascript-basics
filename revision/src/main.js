@@ -470,3 +470,176 @@ function createLowerCaseAlphabets() {
   let xyz = 1212;
   console.log(Number.isInteger(xyz));
 }
+const arrayOfNumbers = [222, 7, 9, 4, 3];
+
+function findSumInArray() {
+  let sum = 0;
+  for (let count = 0; count < arrayOfNumbers.length; count++) {
+    sum = sum + arrayOfNumbers[count];
+  }
+  return sum;
+}
+
+function multipleBy2() {
+  let finalArray = [];
+  for (let count = 0; count < arrayOfNumbers.length; count++) {
+    finalArray.push(arrayOfNumbers[count] * 2);
+  }
+  return finalArray;
+}
+
+function multipleBy2UsingMap() {
+  return arrayOfNumbers.map(multiplyByTwoFunction);
+}
+
+multiplyByTwoFunction = (value, index, array) => {
+  return value * 2;
+};
+
+function findSumInArrayUsingReduce() {
+  return arrayOfNumbers.reduce(addAllNumbers, 0);
+}
+
+addAllNumbers = (previousValue, currentValue, currentIndex, entireArray) => {
+  return previousValue + currentValue;
+};
+
+function findMaxInArrayUsingReduce() {
+  return arrayOfNumbers.reduce(findMax, arrayOfNumbers[0]);
+}
+// Normal function
+// function findMax(pV, cV, cI, entireArray) {
+//   return cV > pV ? cV : pV;
+// }
+// Function declaration
+// findMax = function () {
+//   return cV > pV ? cV : pV;
+// };
+//Arrow function
+// findMax = () => {
+//   return cV > pV ? cV : pV;
+// };
+// Simplified Arrow function
+findMax = (pV, cV, cI, array) => (cV > pV ? cV : pV);
+
+function findMinInArrayUsingReduce() {
+  return arrayOfNumbers.reduce((pV, cV, cI, array) => {
+    return pV < cV ? pV : cV;
+  }, arrayOfNumbers[0]);
+}
+
+console.log("* 2 using for - ", multipleBy2());
+console.log("* 2 using Map - ", multipleBy2UsingMap());
+console.log("Sum using for", findSumInArray());
+console.log("Sum using reduce", findSumInArrayUsingReduce());
+console.log("MAx using reduce", findMaxInArrayUsingReduce());
+console.log("MAx using reduce", findMinInArrayUsingReduce());
+
+const noArray = [34, 43, 434, 56, 56, 1, 8, 8, 77, 90, 89];
+function findEvenNumbers() {
+  let newArray = [];
+  for (let count = 0; count < noArray.length; count++) {
+    if (noArray[count] % 2 === 0) {
+      newArray.push(noArray[count]);
+    }
+  }
+  return newArray;
+}
+
+function removeDuplicates() {
+  let newArray = [];
+  for (let count = 0; count < noArray.length; count++) {
+    if (newArray.indexOf(noArray[count]) === -1) {
+      newArray.push(noArray[count]);
+    }
+  }
+  return newArray;
+}
+
+function findEvenNumbersUsingReduce() {
+  return noArray.reduce(findEvenNos, []);
+}
+
+function findEvenNos(pV, cV, cI, array) {
+  cV % 2 === 0 ? pV.push(cV) : pV;
+  return pV;
+}
+
+function removeDuplicatesUsingReduce() {
+  return noArray.reduce((pV, cV, cI, array) => {
+    pV.indexOf(cV) === -1 ? pV.push(cV) : pV;
+    return pV;
+  }, []);
+}
+
+console.log(findEvenNumbers());
+console.log(findEvenNumbersUsingReduce());
+
+console.log(removeDuplicates());
+console.log(removeDuplicatesUsingReduce());
+
+const studentArray = [
+  {
+    fname: "Steve",
+    lname: "Jobs",
+    schoolName: "Oxford",
+    location: "US",
+    phone: "23233232324",
+  },
+  {
+    fname: "Matt",
+    lname: "Henry",
+    schoolName: "MIT",
+    location: "India",
+    phone: "23233232324",
+  },
+  {
+    fname: "Steve",
+    lname: "Smith",
+    schoolName: "Cambridge",
+    location: "UK",
+    phone: "23233232324",
+  },
+];
+
+// '1212'.padStart(10, 'X')
+
+const newStudentArray = studentArray.map((studentObj) => {
+  return {
+    name: `${studentObj.fname}, ${studentObj.lname}`,
+    school: `${studentObj.schoolName}, ${studentObj.location}`,
+    phone: 0,
+  };
+});
+console.log(newStudentArray);
+
+const studentArray1 = [
+  {
+    fname: "Steve",
+    lname: "Jobs",
+    schoolName: "Oxford",
+    location: "US",
+  },
+  {
+    fname: "Matt",
+    lname: "Henry",
+    schoolName: "MIT",
+    location: "India",
+  },
+  {
+    fname: "Steve",
+    lname: "Smith",
+    schoolName: "Cambridge",
+    location: "UK",
+  },
+];
+
+const newStudentArray1 = studentArray1.reduce((pV, cV, cI, array) => {
+  pV.push({
+    name: `${cV.fname}, ${cV.lname}`,
+    school: `${cV.schoolName}, ${cV.location}`,
+  });
+  return pV;
+}, []);
+
+console.log(newStudentArray1);
