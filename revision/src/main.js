@@ -673,16 +673,38 @@ var voters = [
 function voterResults(arr) {
   // your code here
   let noOfYoungVotes = 0;
-  let newArr = arr.reduce((pV, cV, cI, arr) => {
-    if (cV.age <= 30) {
-      if (pV.numYoungVotes === undefined) {
-        pV.numYoungVotes = 1;
-      } else {
-        pV.numYoungVotes += 1;
+  let newArr = arr.reduce(
+    (pV, cV, cI, arr) => {
+      if (cV.age <= 30) {
+        pV.numYoungPeople += 1;
+        if (cV.voted) {
+          pV.numYoungVotes += 1;
+        }
       }
+
+      if (cV.age > 30 && cV.age <= 60) {
+        pV.numMidsPeople += 1;
+        if (cV.voted) {
+          pV.numMidVotesPeople += 1;
+        }
+      }
+      if (cV.age > 60) {
+        pV.numOldsPeople += 1;
+        if (cV.voted) {
+          pV.numOldVotesPeople += 1;
+        }
+      }
+      return pV;
+    },
+    {
+      numYoungVotes: 0,
+      numYoungPeople: 0,
+      numMidVotesPeople: 0,
+      numMidsPeople: 0,
+      numOldVotesPeople: 0,
+      numOldsPeople: 0,
     }
-    return pV;
-  }, {});
+  );
 
   console.log(newArr);
 }
@@ -697,3 +719,107 @@ numOldVotesPeople: 3,
 numOldsPeople: 4 
 }
 */
+
+const stringArray = ["A", "B", "C", "D", "E"];
+// 'ABCDE'
+// const stringArray1 = stringArray.map(changeName);
+// function changeName(x) {
+//   console.log(x);
+//   return x.substr(0, 1);
+// }
+
+// const changeName = function (x) {
+//   console.log(x);
+//   return x.substr(0, 1);
+// };
+
+// const changeName = (x) => {
+//   console.log(x);
+//   return x.substr(0, 1);
+// };
+
+const stringArray1 = stringArray.map((x, index, array) => {
+  console.log(x, index);
+  return x.substring(0, 1);
+});
+
+console.log(stringArray1);
+
+const stringArray2 = stringArray.reduce((pV, cV, index, array) => {
+  pV = pV + cV;
+  return pV;
+}, "");
+
+console.log(stringArray2);
+
+function total(arr) {
+  // your code here
+  console.log(arr);
+  return arr.reduce(add, 0);
+}
+
+function add(pV, cV, cI, array) {
+  pV = pV + cV;
+  console.log(pV);
+  return pV;
+}
+
+console.log(total([1, 2, 3])); // 6
+
+function totalVotes(arr) {
+  // your code here
+  return arr.reduce(noOfVotes, 0);
+}
+
+// function noOfVotes(pV, cV, cI, array) {
+//   if (cV.voted === true) {
+//     pV = pV + 1;
+//   }
+//   return pV;
+// }
+
+// const noOfVotes = function (pV, cV, cI, array) {
+//   if (cV.voted === true) {
+//     pV = pV + 1;
+//   }
+//   return pV;
+// };
+
+const noOfVotes = (pV, cV, cI, array) => {
+  if (cV.voted === true) {
+    pV = pV + 1;
+  }
+  return pV;
+};
+
+var voters = [
+  { name: "Bob", age: 30, voted: true },
+  { name: "Jake", age: 32, voted: true },
+  { name: "Kate", age: 25, voted: false },
+  { name: "Sam", age: 20, voted: false },
+  { name: "Phil", age: 21, voted: true },
+  { name: "Ed", age: 55, voted: true },
+  { name: "Tami", age: 54, voted: true },
+  { name: "Mary", age: 31, voted: false },
+  { name: "Becky", age: 43, voted: false },
+  { name: "Joey", age: 41, voted: true },
+  { name: "Jeff", age: 30, voted: true },
+  { name: "Zack", age: 19, voted: false },
+];
+console.log(totalVotes(voters)); // 7
+
+setInterval(callBackFn, 5000);
+
+// function callBackFn() {
+//   console.log("called");
+// }
+
+// const callBackFn = function () {
+//   console.log("called");
+// };
+
+// const callBackFn = () => {
+//   return 5;
+// };
+
+const callBackFn = () => 5;
