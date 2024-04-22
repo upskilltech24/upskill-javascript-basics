@@ -50,7 +50,7 @@ typeof
     - Array , Object, String, Number, Date, null -> typeof will return object
     - How to identify it is Array or string or etc.
       - using .constructor => {a: 45}.constructor will return
-        function Function(){[native code]}
+        function Object(){[native code]}
       - convert to String and check using indexOf, 
         we can identify if this is Array or Date or Object
       - {a: 50}.constructor === Array
