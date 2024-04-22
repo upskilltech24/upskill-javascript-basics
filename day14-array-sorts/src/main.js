@@ -1,3 +1,17 @@
+/*
+sort - Array
+sort will arrange values in ascending order
+reverse will arrange the values in the opposite order
+sort will work properly only for string
+for numbers, it will behave as string sort, we need to add custom sort to order correctly
+for objects, sort will not work. we have to add a custom sort again
+sort will update original array
+toSorted - will not modify the original array, we can assign to another variable to see the modified values
+toReversed - same as toSorted, original array will not get disturbed
+
+
+ */
+
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 fruits.sort();
 console.log(fruits);
@@ -30,23 +44,39 @@ console.log(months1, sorted1);
 console.log(months, reversed);
 
 var points = [44, 4, 7];
+// b - 44
+// a - 4
+// 4 - 44 => -ve
+// it will swap [4, 44, 7]
+// b - 4
+// a - 7
+// 7 - 4 + ve
+// it will not swap [4, 44, 7]
+// a - 7
+// b - 44
+// - - 44 => -ve
+// it will swap [4, 7, 44]
 points.sort(function (a, b) {
+  console.log(a, b);
   return a - b;
 });
 
 console.log(points);
 
 const fruitObjectArray1 = [
-  { name: "Banana", origin: "India" },
+  { name: "Papaya", origin: "Sweden" },
   { name: "Orange", origin: "US" },
-  { name: "Apple", origin: "Australia" },
   { name: "Mango", origin: "Canada" },
+  { name: "Banana", origin: "India" },
+  { name: "Apple", origin: "Australia" },
 ];
 
 fruitObjectArray1.sort(function (p1, p2) {
+  console.log(p1, p2);
   if (p1.name < p2.name) return -1;
   if (p1.name > p2.name) return 1;
 });
+console.log(fruitObjectArray1);
 
 const fruitObjectArray2 = [
   { name: 1, origin: "India" },
@@ -56,14 +86,14 @@ const fruitObjectArray2 = [
 ];
 
 fruitObjectArray2.sort(function (a, b) {
-  return a.name - b.name;
+  return b.name - a.name;
 });
 
 console.log(fruitObjectArray2);
 
 fruitObjectArray2.sort(function (a, b) {
-  if (a.origin < b.origin) return 1;
-  if (a.origin > b.origin) return -1;
+  if (a.origin < b.origin) return -1;
+  if (a.origin > b.origin) return 1;
 });
 
 console.log(fruitObjectArray2);
@@ -150,4 +180,12 @@ function deleteAllRows() {
       table.deleteRow(i);
     }
   }
+}
+
+function onTest() {
+  alert("111");
+}
+
+function onLoad() {
+  document.getElementById("btn").addEventListener("click", onTest);
 }

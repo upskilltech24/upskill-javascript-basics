@@ -502,3 +502,28 @@ var iplMatches = [
   { opponent1: "Mumbai", opponent2: "Rajasthan", winner: "Mumbai" },
   { opponent1: "Hyderabad", opponent2: "Rajasthan", winner: "Rajasthan" },
 ];
+
+function onKeyDownOperation(event) {
+  console.log(event);
+}
+
+const matchedWonByChennai = iplMatches.filter((currentNode) => {
+  return currentNode.winner === "Mumbai";
+});
+
+iplMatches.map((currentNode) => {
+  if (currentNode.winner === "Chennai") {
+    currentNode.winner = "Chennai super kings";
+  }
+  if (currentNode.winner === "Delhi") {
+    currentNode.winner = "Delhi capitals";
+  }
+  if (currentNode.winner === "Mumbai") {
+    currentNode.winner = "Mumbai Indians";
+  }
+  if (currentNode.winner === "Rajasthan") {
+    currentNode.winner = "Rajasthan Royals";
+  }
+  return currentNode;
+});
+console.log(iplMatches);

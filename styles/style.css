@@ -31,6 +31,18 @@ p {
     color: red;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.heading {
+    color: green;
+}
+
 #para {
     font-style: italic;
 }

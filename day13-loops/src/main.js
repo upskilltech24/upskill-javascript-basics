@@ -237,7 +237,6 @@ fetch("assets/data.json")
   .then((response) => response.json())
   .then((json) => {
     responseData = json;
-    // console.log(json);
   });
 
 function renderTable() {

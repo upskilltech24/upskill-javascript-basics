@@ -807,6 +807,7 @@ var voters = [
   { name: "Zack", age: 19, voted: false },
 ];
 console.log(totalVotes(voters)); // 7
+const callBackFn = () => 5;
 
 setInterval(callBackFn, 5000);
 
@@ -822,4 +823,163 @@ setInterval(callBackFn, 5000);
 //   return 5;
 // };
 
-const callBackFn = () => 5;
+const arr1 = [111, 222, 333, 444, 666];
+for (let count = 0; count < arr1.length; count++) {
+  console.log(arr1[count]);
+}
+
+// function printValue(value, index) {
+//   console.log(value, index);
+// }
+
+// const printValue = function (value, index) {
+//   console.log(value, index);
+// };
+
+const printValue = (value, index) => {
+  console.log(value, index);
+};
+
+arr1.forEach(printValue);
+
+let obj = [
+  { name: "Ganapathy", class: "FrontEnd" },
+  { name: "Ganapathy1", class: "FrontEnd1" },
+];
+
+for (index in arr1) {
+  console.log(arr1[index]);
+}
+
+let studentObj = { name: "Ganapathy", class: "FrontEnd" };
+for (key in studentObj) {
+  console.log(studentObj[key]);
+}
+
+for (value of arr1) {
+  console.log(value);
+}
+
+for (value of "JAVA") {
+  console.log(value);
+}
+
+function buttonClick() {
+  alert("-");
+}
+
+function onLoad() {
+  document.getElementById("btn").addEventListener("click", buttonClick);
+}
+
+let fruits = ["Banana", "Orange", "Apple", "Mango", "amla"];
+fruits.reverse();
+console.log("Reverse", fruits);
+fruits.sort();
+console.log(fruits);
+
+fruits = ["Banana", "Orange", "Apple", "Mango", "amla"];
+const sortedFruits = fruits.toSorted();
+console.log(fruits, sortedFruits);
+
+let number = [1, 55, 5555555, 6, 66, 8];
+number.sort();
+console.log(number);
+
+number = [1, 55, 5555555, 6, 6, 66, 8];
+number.sort(function (a, b) {
+  if (a > b) return 1;
+  if (a < b) return -1;
+});
+console.log(number);
+
+fruits = ["Banana", "Orange", "Apple", "Mango", "amla"];
+fruits.sort((a, b) => {
+  if (a.toUpperCase() > b.toUpperCase()) return 1;
+  if (a.toUpperCase() < b.toUpperCase()) return -1;
+});
+console.log(fruits);
+
+number = [1, 55, 5555555, 6, 6, 66, 8];
+number.sort(function (a, b) {
+  return a - b;
+});
+console.log(number);
+
+number = ["1", "55", "5555555", "6", "6", "66", "8"];
+number.sort(function (a, b) {
+  return a - b;
+});
+console.log(number);
+
+fruits = ["Banana", "Orange", "Apple", "Mango", "aa"];
+fruits.sort((a, b) => {
+  console.log(a.substring(0, 1), String.fromCharCode(a.substring(0, 1)));
+  console.log(b.substring(0, 1), String.fromCharCode(b.substring(0, 1)));
+
+  return a.toUpperCase().charCodeAt(0) - b.toUpperCase().charCodeAt(0);
+});
+console.log(fruits);
+
+const stateObj = [
+  { name: "Tamil nadu", city: "Chennai" },
+  { name: "Tamil nadu", city: "Arakonam" },
+  { name: "Puducherry", city: "Karaikal" },
+  { name: "Puducherry", city: "Puducherry" },
+  { name: "Karnataka", city: "Bangalore" },
+  { name: "Karnataka", city: "Mangalore" },
+  { name: "Telungana", city: "Hyderabad" },
+  { name: "Telungana", city: "Secunderabad" },
+];
+stateObj.sort((a, b) => {
+  // if (a.name > b.name) {
+  //   return 1;
+  // }
+  // if (a.name < b.name) {
+  //   return -1;
+  // }
+  // if (a.name === b.name) {
+  //   if (a.city > b.city) {
+  //     return 1;
+  //   }
+  //   if (a.city < b.city) {
+  //     return -1;
+  //   }
+  // }
+  if (a.name === b.name) {
+    return a.city > b.name ? 1 : -1;
+  } else {
+    return a.name > b.name ? 1 : -1;
+  }
+});
+console.log(stateObj);
+
+const uniqueArray = [1, 1, 5, 6, 7, 3, 5];
+
+// [1, 3, 5, 6, 7]
+
+const newArr = [];
+for (let count = 0; count < uniqueArray.length; count++) {
+  if (newArr.indexOf(uniqueArray[count]) === -1) {
+    newArr.push(uniqueArray[count]);
+  }
+}
+
+console.log(newArr);
+
+const stateArray = [
+  { city: "Taraori", state: "Haryana" },
+  { city: "Thanesar", state: "Haryana" },
+  { city: "Tohana", state: "Haryana" },
+  { city: "Yamunanagar", state: "Haryana" },
+  { city: "Arki", state: "Himachal Pradesh" },
+  { city: "Baddi", state: "Himachal Pradesh" },
+  { city: "Bilaspur", state: "Himachal Pradesh" },
+  { city: "Chamba", state: "Himachal Pradesh" },
+  { city: "Dalhousie", state: "Himachal Pradesh" },
+];
+
+const filteredCities = stateArray.filter((val) => {
+  return val.state === "Haryana";
+});
+console.log(filteredCities);
