@@ -1,3 +1,7 @@
+/*
+typeof -gove
+ */
+
 var mapInJS = new Map();
 mapInJS.set(1, "test");
 mapInJS.set(2, 12);

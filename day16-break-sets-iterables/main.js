@@ -58,7 +58,7 @@ typeof
       - typeof null => object
 
 instanceOf
-    - Will give if the passed value is instance of [Array of Object or etc.]
+    - Will give if the passed value is instance of [Array or Object or etc.]
     - const arr = [1, 2, 3]; arr instanceof Array => will give true
     - const arr = [1, 2, 3]; arr instanceof Object => will give true
     - const arr = "123"; arr instanceof Object => will give false

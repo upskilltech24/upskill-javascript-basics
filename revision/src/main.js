@@ -983,3 +983,83 @@ const filteredCities = stateArray.filter((val) => {
   return val.state === "Haryana";
 });
 console.log(filteredCities);
+
+function findAllItemsInArray() {
+  var mainArray = [1, 2, 3, 6, 67, 45, 56, 5, 9];
+  var subArray = [3, 9, 67];
+  var isAvailable = true;
+
+  subArray.forEach((value) => {
+    if (mainArray.indexOf(value) === -1) {
+      isAvailable = false;
+      return;
+    }
+
+    console.log("------>", value);
+  });
+
+  if (isAvailable) {
+    alert("all values exists");
+  } else {
+    alert("all values  does not exists");
+  }
+}
+
+// findAllItemsInArray();
+
+function findSequenceOfItemsInArray() {
+  var mainArray = [1, 2, 3, 6, 67, 45, 56, 5, 9];
+  var subArray = [2, 6, 56, 56, 5, 9];
+  // let isCorrectSequence = true;
+
+  let sequenceArr = [];
+  subArray.forEach((value) => {
+    sequenceArr.push(mainArray.indexOf(value));
+  });
+
+  let sequenceArrSorted = [...sequenceArr];
+  sequenceArrSorted.sort();
+  console.log(sequenceArr, sequenceArrSorted);
+  if (sequenceArr.toString() === sequenceArrSorted.toString()) {
+    alert("Sequence is correct");
+  } else {
+    alert("Sequence is not correct");
+  }
+}
+
+// findSequenceOfItemsInArray();
+
+function findSequenceOfItemsInArray1() {
+  var mainArray = [1, 2, 3, 6, 67, 45, 56, 56, 5, 9];
+  var subArray = [2, 6, 56, 56];
+  let isCorrectSequence = true;
+  let index = 0;
+  subArray.forEach((val) => {
+    index = mainArray.indexOf(val, index);
+    if (index === -1) {
+      isCorrectSequence = false;
+      return;
+    }
+    index = index + 1;
+  });
+
+  if (isCorrectSequence) {
+    alert("Sequence is correct");
+  } else {
+    alert("Sequence is not correct");
+  }
+}
+
+findSequenceOfItemsInArray1();
+console.log("-----> ", Array.isarrartype(12));
+function openGoogle() {
+  console.log(navigator.appName);
+
+  // window.open("https://www.google.com/", "_blank");
+}
+
+function test() {
+  return 12;
+}
+var tetttettt;
+console.log(test());
