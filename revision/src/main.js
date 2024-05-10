@@ -1044,9 +1044,9 @@ function findSequenceOfItemsInArray1() {
   });
 
   if (isCorrectSequence) {
-    alert("Sequence is correct");
+    console.log("Sequence is correct");
   } else {
-    alert("Sequence is not correct");
+    console.log("Sequence is not correct");
   }
 }
 
